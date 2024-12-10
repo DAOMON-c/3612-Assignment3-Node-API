@@ -74,7 +74,7 @@ For example to request a single circuit by its `id = 1`, the API endpoint (as sh
     
 - #### Constructors route
   - All
-    - **Valid Request:** [/api/constructors](https://messy-trusted-boron.glitch.me/api/constructors) should return `214 constructors; constructorID:{1 to 214}`.
+    - **Valid Request:** [/api/constructors](https://messy-trusted-boron.glitch.me/api/constructors) should return `211 constructors`.
 
     - Any other request format is a ***FALL THROUGH***
 

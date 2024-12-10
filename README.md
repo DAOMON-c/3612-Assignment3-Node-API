@@ -42,80 +42,80 @@ The application serves as a comprehensive Formula 1 statistics API, providing de
 The application presently resides at <https://messy-trusted-boron.glitch.me>.  
 Since no valid API endpoint is being invoked, clicking on the above base URL will result in a ***`FALL THROUGH`***. As such, inorder to make use of the services provided by the application, clients must format their request exactly as 
 - `domain + api`  
-For example to request a single circuit by its `id=1`, the API endpoint (as shown in the table) would be `/api/circuit/1`, and then appending this endpoint to the domain would result in a full request URL of:  
-- `https://messy-trusted-boron.glitch.me/api/circuit/1` 
+For example to request a single circuit by its `id=1`, the API endpoint (as shown in the table) would be `/api/circuit/1`, and then appending this endpoint to the domain URL would result in a full request URL of:  
+  - `https://messy-trusted-boron.glitch.me/api/circuit/1` 
 
 ### TESTING 
 *The expected server response for each API call is shown below where appropriate, additionally the domain URL will be abstracted away for ease of readability, with the sole focus being on the API endpoint*
 
 - #### Circuits route
-  1. **Valid Parameter:**
-     [/api/circuits/1](https://messy-trusted-boron.glitch.me/api/circuits/1)
-    ````
-    {
-      "circuitId": 1,
-      "circuitRef": "albert_park",
-      "name": "Albert Park Grand Prix Circuit",
-      "location": "Melbourne",
-      "country": "Australia",
-      "lat": -37.8497,
-      "lng": 144.968,
-      "alt": 10,
-      "url": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit"
-    }
-    ````
-  2. **`Invalid Parameter:`**
-     [/api/circuits/100000000](https://messy-trusted-boron.glitch.me/api/circuits/100000000)
-    ````
-    {
-      "message":"Circuits: Unable to find circuit with id=100000000"
-    }
-    ````
+
+  1. **Valid Parameter:** <br>
+     [/api/circuits/1](https://messy-trusted-boron.glitch.me/api/circuits/1) <br>
+     ````
+     {
+       "circuitId": 1,
+       "circuitRef": "albert_park",
+       "name": "Albert Park Grand Prix Circuit",
+       "location": "Melbourne",
+       "country": "Australia",
+       "lat": -37.8497,
+       "lng": 144.968,
+       "alt": 10,
+       "url": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit"
+     }
+     ````
+  2. **`Invalid Parameter:`** <br>
+     [/api/circuits/100000000](https://messy-trusted-boron.glitch.me/api/circuits/100000000) <br>
+     ````
+     {
+       "message":"Circuits: Unable to find circuit with id=100000000"
+     }
+     ````
   3. Any other request format is a ***FALL THROUGH***
     
 - #### Constructors route
   - All
-    1. **Valid Request:**
+    1. **Valid Request:** <br>
        [/api/constructors](https://messy-trusted-boron.glitch.me/api/constructors) should return all constructor records, which is `211 records`.
 
     2. Any other request format is a ***FALL THROUGH***
 
   - ref
-    1. **Valid Parameter:**
-       [/api/constructors/ref/ferrari](https://messy-trusted-boron.glitch.me/api/constructors/ferrari)
-      ````
-      {
-        "constructorId": 6,
-        "constructorRef": "ferrari",
-        "name": "Ferrari",
-        "nationality": "Italian",
-        "url": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
-      }
-      ````
-    2. **`Invalid Parameter:`**
-       [/api/constructors/ref/ferrariiii](https://messy-trusted-boron.glitch.me/api/constructors/ferrariiii)
-      ````
-      {
-        "message": "Constructors: Unable to find constructor with ref=ferrariiii"
-      }
-      ````
-      
+    1. **Valid Parameter:** <br>
+       [/api/constructors/ref/ferrari](https://messy-trusted-boron.glitch.me/api/constructors/ferrari) <br>
+       ````
+       {
+         "constructorId": 6,
+         "constructorRef": "ferrari",
+         "name": "Ferrari",
+         "nationality": "Italian",
+         "url": "http://en.wikipedia.org/wiki/Scuderia_Ferrari"
+       }
+       ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/constructors/ref/ferrariiii](https://messy-trusted-boron.glitch.me/api/constructors/ferrariiii) <br>
+       ````
+       {
+         "message": "Constructors: Unable to find constructor with ref=ferrariiii"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
       
 - #### constructorResults route
-  1. **Valid Parameter:**
+  1. **Valid Parameter:** <br>
      [/api/constructorResults/ferrari/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrari/2020) should return all of ferrari's 2020 races, which is `34 records`.
 
-  2. **`Invalid Parameter:`**
-     Invalid constructor refrence, with a valid season:
-     [/api/constructorResults/ferrariiii/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrariiii/2020)
-    ````
-    {
-      "message": "ConstructorResults: Unable to find results with both ref=ferrariiii and season=2023"
-    }
-    ````
-  3. **`Invalid Parameter:`** Valid constructor refrence, with an invalid season:
-     [/api/constructorResults/ferrari/3020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrari/3020)
+  2. **`Invalid Parameter:`** <br>
+     Invalid constructor refrence, with a valid season: <br>
+     [/api/constructorResults/ferrariiii/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrariiii/2020) <br>
+     ````
+     {
+       "message": "ConstructorResults: Unable to find results with both ref=ferrariiii and season=2023"
+     }
+     ````
+  3. **`Invalid Parameter:`** Valid constructor refrence, with an invalid season: <br>
+     [/api/constructorResults/ferrari/3020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrari/3020) <br>
     ````
     {
       "message": "ConstructorResults: Unable to find results with both ref=ferrari and season=3020"
@@ -125,127 +125,129 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
     
 - #### drivers route
   - All
-    1. **Valid Request:**
+    1. **Valid Request:** <br>
        [/api/drivers](https://messy-trusted-boron.glitch.me/api/drivers) should return all the drivers' records, which is `858 records`.
       
     2. Any other request format is a ***FALL THROUGH***
 
   - ref
-    1. **Valid Parameter:**
-       [/api/drivers/hamilton](https://messy-trusted-boron.glitch.me/api/drivers/hamilton)
-      
-      ````
-      {
-        "driverId": 1,
-        "driverRef": "hamilton",
-        "number": 44,
-        "code": "HAM",
-        "forename": "Lewis",
-        "surname": "Hamilton",
-        "dob": "1985-01-07",
-        "nationality": "British",
-        "url": "http://en.wikipedia.org/wiki/Lewis_Hamilton"
-      }
-      ````
-    2. **`Invalid Parameter:`**
-       [/api/drivers/afakeRefrence](https://messy-trusted-boron.glitch.me/api/drivers/afakeRefrence)
-      ````
-      {
-        "message": "Drivers: Unable to find driver with ref=afakerefrence"
-      }
-      ````
+    1. **Valid Parameter:** <br>
+       [/api/drivers/hamilton](https://messy-trusted-boron.glitch.me/api/drivers/hamilton) <br>
+       ````
+       {
+         "driverId": 1,
+         "driverRef": "hamilton",
+         "number": 44,
+         "code": "HAM",
+         "forename": "Lewis",
+         "surname": "Hamilton",
+         "dob": "1985-01-07",
+         "nationality": "British",
+         "url": "http://en.wikipedia.org/wiki/Lewis_Hamilton"
+       }
+       ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/drivers/afakeRefrence](https://messy-trusted-boron.glitch.me/api/drivers/afakeRefrence) <br>
+       ````
+       {
+         "message": "Drivers: Unable to find driver with ref=afakerefrence"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
   
 - #### driverResults route
-  1. **Valid Parameter:**
+  1. **Valid Parameter:** <br>
      [/api/driverResults/hamilton/2020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/2020) should return Lewis Hamilton's results for the 2020 season. which is ``.
 
-  2. **`Invalid Parameter:`**
-     Valid driver refrence, with an invalid season: [/api/driverResults/hamilton/3020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/3020)
-    ````
-    {
-      "message": "DriverResults: Unable to find results with both ref=hamilton and year=3020"
-    }
-    ````
-  3. **`Invalid Parameter:`**
-     Invalid driver refrence, with a valid season: [/api/driverResults/afakerefrence/2020](https://messy-trusted-boron.glitch.me/api/driverResults/afakerefrence/2020)
+  2. **`Invalid Parameter:`** <br>
+     Valid driver refrence, with an invalid season: <br>
+     [/api/driverResults/hamilton/3020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/3020) <br>
      ````
-      {
-        "message": "DriverResults: Unable to find results with both ref=afakerefrence and year=2020"
-      }
+     {
+       "message": "DriverResults: Unable to find results with both ref=hamilton and year=3020"
+     }
      ````
-  3. Any other request format is a ***FALL THROUGH***  
+  3. **`Invalid Parameter:`** <br>
+     Invalid driver refrence, with a valid season: <br>
+     [/api/driverResults/afakerefrence/2020](https://messy-trusted-boron.glitch.me/api/driverResults/afakerefrence/2020)
+     ````
+     {
+       "message": "DriverResults: Unable to find results with both ref=afakerefrence and year=2020"
+     }
+     ````
+  3. Any other request format is a ***FALL THROUGH***
+     
 - #### races route
   - /season/`year`
-    1. **Valid Parameter:**
+    1. **Valid Parameter:** <br>
        [/api/races/season/2020](https://messy-trusted-boron.glitch.me/api/races/season/2020) should return all the rounds in the 2020 season, which is `17 records`.
-    2. **`Invalid Parameter:`**
-       [/api/races/season/3020](https://messy-trusted-boron.glitch.me/api/races/season/3020)
-      ````
-      {
-        "message":"Races: Unable to find races for requested season=3020"
-      }
-      ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/races/season/3020](https://messy-trusted-boron.glitch.me/api/races/season/3020) <br>
+       ````
+       {
+         "message":"Races: Unable to find races for requested season=3020"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
       
   - /id/`id`
-    1. **Valid Parameter:**
-       [/api/races/id/1085](https://messy-trusted-boron.glitch.me/api/races/id/1085)
-    ````
-    {
-    "id": 1085,
-    "year": 2022,
-    "round": 12,
-    "name": "French Grand Prix",
-    "date": "2022-07-24",
-    "time": "13:00:00",
-    "url": "http://en.wikipedia.org/wiki/2022_French_Grand_Prix",
-    "circuit": {
-      "id": 34,
-      "ref": "ricard",
-      "name": "Circuit Paul Ricard",
-      "location": "Le Castellet",
-      "country": "France",
-      "lat": 43.2506,
-      "lng": 5.79167,
-      "url": "http://en.wikipedia.org/wiki/Paul_Ricard_Circuit"
-      }
-    }
-    ````
+    1. **Valid Parameter:** <br>
+       [/api/races/id/1085](https://messy-trusted-boron.glitch.me/api/races/id/1085) <br>
+       ````
+       {
+         "id": 1085,
+         "year": 2022,
+         "round": 12,
+         "name": "French Grand Prix",
+         "date": "2022-07-24",
+         "time": "13:00:00",
+         "url": "http://en.wikipedia.org/wiki/2022_French_Grand_Prix",
+         "circuit": {
+         "id": 34,
+         "ref": "ricard",
+         "name": "Circuit Paul Ricard",
+         "location": "Le Castellet",
+         "country": "France",
+         "lat": 43.2506,
+         "lng": 5.79167,
+         "url": "http://en.wikipedia.org/wiki/Paul_Ricard_Circuit"
+       }
+       }
+       ````
   
-    2. **`Invalid Parameter:`**
-       [/api/races/id/-1](https://messy-trusted-boron.glitch.me/api/races/id/-1)
-    ````
-    {
-      "message":"Races: Unable to find races with requested id=-1"
-    }
-    ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/races/id/-1](https://messy-trusted-boron.glitch.me/api/races/id/-1) <br>
+       ````
+       {
+         "message":"Races: Unable to find races with requested id=-1"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
 
 - #### results route
   - /race/`id`
-    1. **Valid Parameter:**
+    1. **Valid Parameter:** <br>
        [/api/results/race/1085](https://messy-trusted-boron.glitch.me/api/results/race/1085) should return all races with `id=1085`, which is `20 records`.
        
-    2. **`Invalid Parameter:`**
-       [/api/results/race/-1](https://messy-trusted-boron.glitch.me/api/results/race/-1)
-      ````
-      {
-        "message":"Results: Unable to find races with requested id=-1"
-      }
-      ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/results/race/-1](https://messy-trusted-boron.glitch.me/api/results/race/-1) <br>
+       ````
+       {
+         "message":"Results: Unable to find races with requested id=-1"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
 
   - /season/`year`
-    1. **Valid Parameter:**
+    1. **Valid Parameter:** <br>
        [/api/results/season/2020](https://messy-trusted-boron.glitch.me/api/results/season/2020) should return all the 2020 season results, which is `340 records`.
       
-    2. **`Invalid Parameter:`**
-       [/api/results/season/3020](https://messy-trusted-boron.glitch.me/api/results/season/3020)
-      ````
-      {
-        "message":"Results: Unable to find races for requested season=3024"
-      }
-      ````
+    2. **`Invalid Parameter:`** <br>
+       [/api/results/season/3020](https://messy-trusted-boron.glitch.me/api/results/season/3020) <br>
+       ````
+       {
+         "message":"Results: Unable to find races for requested season=3024"
+       }
+       ````
     3. Any other request format is a ***FALL THROUGH***
 

@@ -34,7 +34,7 @@ The application serves as a comprehensive Formula 1 statistics API, providing de
 - Requests that do use a valid API call for an invalid data record will be result in the server responding with a JSON object containing the appropriate message, e.g., */api/drivers/invalidRef* will result in the following response
 ````
 {
-  "message":"Drivers: Unable to find driver with Ref=invalidref"
+  "message":"Drivers: Unable to find driver with ref=invalidref"
 }
 ```` 
 

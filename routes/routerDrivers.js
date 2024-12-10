@@ -18,7 +18,7 @@ router.get('/:ref', (req, res) => {
         res.json(matches);
 
     else
-        res.json({ message: `Drivers: Unable to find driver with Ref=${ref}` });
+        res.json({ message: `Drivers: Unable to find driver with ref=${ref}` });
 });
 
 module.exports = router;

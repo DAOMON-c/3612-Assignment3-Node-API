@@ -7,9 +7,8 @@ const router = express.Router();
 
 router.get('/:ref/:year', (req, res) => {
 
-    const ref = req.params.ref;
+    const ref = req.params.ref.toLocaleLowerCase();
     const year = req.params.year;
-
     const matches = resultsData.filter(result =>
         ((result.race.year == year) && (result.constructor.ref == ref))
     );

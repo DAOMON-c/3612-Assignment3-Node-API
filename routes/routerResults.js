@@ -7,13 +7,13 @@ const router = express.Router();
 
 router.get('/race/:id', (req, res) => {
 
-    const raceID = req.params.id;
-    const matches = resultsData.filter(result => result.race.id == raceID);
+    const id = req.params.id;
+    const matches = resultsData.filter(result => result.race.id == id);
 
     if (matches.length > 0)
         res.json(matches);
     else
-        res.json({ message: `Results: Unable to find races with requested Id=${raceID}` });
+        res.json({ message: `Results: Unable to find races with requested id=${id}` });
 });
 
 router.get('/season/:year', (req, res) => {

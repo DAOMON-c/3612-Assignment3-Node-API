@@ -10,13 +10,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+
     const id = req.params.id;
     const matches = circuitsData.find(circuit => circuit.circuitId == id);
 
     if (matches)
         res.json(matches);
     else
-        res.json({ message: `Circuits: Unable to find circuit with ID=${id}` });
+        res.json({ message: `Circuits: Unable to find circuit with id=${id}` });
 });
 
 module.exports = router;

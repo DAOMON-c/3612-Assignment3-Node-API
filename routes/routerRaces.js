@@ -10,23 +10,21 @@ router.use('/season/:year', (req, res) => {
     const year = req.params.year;
     const matches = racesData.filter(race => race.year == year);
 
-    if (matches)
+    if (matches.length > 0)
         res.json(matches);
     else
         res.json({ message: `Races: Unable to find races for requested season=${year}` });
-
 });
 
 router.use('/id/:id', (req, res) => {
 
-    const raceID = req.params.id;
-    const matches = racesData.filter(race => race.id == raceID);
+    const id = req.params.id;
+    const matches = racesData.filter(race => race.id == id);
 
     if (matches.length > 0)
         res.json(matches);
     else
-        res.json({ message: `Races: Unable to find races with requested Id=${raceID}` });
+        res.json({ message: `Races: Unable to find races with requested id=${id}` });
 });
-
 
 module.exports = router;

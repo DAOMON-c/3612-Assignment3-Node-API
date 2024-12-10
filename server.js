@@ -32,8 +32,8 @@ app.use('*', (req, res) => {
     });
 });
 
-//let port = 8080;
-let port = process.env.PORT;
+let port = 8080;
+//let port = process.env.PORT;
 
 app.listen(port, () => {
     console.log('Listening on port: ' + port);

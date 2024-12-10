@@ -12,13 +12,13 @@ router.get('/', (req, res) => {
 
 router.get('/:ref', (req, res) => {
 
-    const constructorRef = req.params.ref;
-    const matches = constData.find(constructor => constructor.constructorRef == constructorRef);
+    const ref = req.params.ref;
+    const matches = constData.find(constructor => constructor.constructorRef == ref);
 
     if (matches)
         res.json(matches);
     else
-        res.json({ message: `Constructors: Unable to find constructor with Ref=${constructorRef}` });
+        res.json({ message: `Constructors: Unable to find constructor with Ref=${ref}` });
 });
 
 module.exports = router;

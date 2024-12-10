@@ -1,3 +1,4 @@
+  
 ## COMP 3612 (Fall 2024): Node API
 
 ### Overview
@@ -8,7 +9,6 @@ seasons. Specifically, the web application provides the following services:
 
 |API|Description|
 |:------|:------|
-|<span style="color: red">`/api/circuits`</span>|Returns all circuits.|
 |`/api.circuits/id`|Returns single circuit specified by the passed circuitId value, e.g., */api/circuits/1*|
 |`/api/constructors`|Returns all constructors.|
 |`/api/constructors/ref`|Returns single constructor specified by the passed constructorRef value.|
@@ -22,13 +22,14 @@ seasons. Specifically, the web application provides the following services:
 |`/api/results/season/year`|Returns all results for all the races in the season, e.g., */api/results/season/2023*|
 
 **The above are the only valid api calls provided by the application** 
-- Any requests not made using the above api calls   will be met with a "404 Not found error" 
+- Any requests not made using these api calls will be met with a **404 Not found error**
 - Requests that do use a valid api call for a non-existent data record will be met with a JSON object containing the appropriate message.
 
 #### Accessing the application 
 The application currently resides at glitch.com 
 To make use of any of the above api calls, form your web request as follows:
 glitc
+
 
 
 

@@ -23,10 +23,12 @@ app.use('/api/races', racesRouter);
 
 app.use('/api/results', resultsRouter);
 
-app.use('/*', (req, res) => {
+app.use('*', (req, res) => {
 
-    res.json({ Error: true,
-        message: "ERROR: Invalid API endpoint", requestURL: req.originalUrl, 
+    res.status(404).json({
+        ServerError: true,
+        message: "ERROR: Invalid API endpoint",
+        requestedPath: req.originalUrl
     });
 });
 

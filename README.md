@@ -2,8 +2,8 @@
 ## COMP 3612 (Fall 2024): Node API
 
 ### Overview
-This is a web application developed in NodeJS using solely the Express Module for Assignment #3 of COMP-3612: Web Developement at Mount Royal University.
-The application serves as a comprehensive Formula 1 statistics API, providing detailed race data for the 2020 through 2023 seasons. Through the provided endpoints, clients can request and access information about circuits, constructors, drivers, races, and performance statistics across the seasons. The application provides the following API endpoints:
+This is a web application developed in NodeJS using the Express Module for Assignment#3 of **COMP 3612:Web Developement at Mount Royal University**.
+The application serves as a comprehensive Formula 1 statistics API, providing detailed race data for the 2020 through 2023 seasons. Through the provided endpoints, clients can request and access information about circuits, constructors, drivers, races, and performance statistics across the seasons. The provided API endpoints are outlined below:
 
 
 |API|Description|
@@ -31,16 +31,17 @@ The application serves as a comprehensive Formula 1 statistics API, providing de
 "requestedPath":"/api/"
 }
 ````
-- Requests that do use a valid API call for an invalid data record will be result in the server responding with a JSON object containing the appropriate message, e.g., */api/drivers/invalidRef* will result in the following response
+- Requests using a valid API endpoint but contain an invalid data record (parameter) will receive a JSON object containing the appropriate error message from the server. For example requesting */api/drivers/invalidRef* will return:
+  
 ````
 {
-  "message":"Drivers: Unable to find driver with ref=invalidref"
+  "message":"Drivers: Unable to find driver with ref=invalidRef"
 }
 ```` 
-
 ### USING THE APPLICATION
-The application is hosted on `glitch.me`, and can currently be accessed at the domain `https://messy-trusted-boron.glitch.me`  
-However, since no valid API endpoint is being invoked, this will result in a ***`FALL THROUGH`***. As such, inorder to make use of the services provided by the application, clients must format their request exactly as `domain + api`  
+The application presently resides at <https://messy-trusted-boron.glitch.me> domain  
+Since no valid API endpoint is being invoked, clicking on the above domain will result in a ***`FALL THROUGH`***. As such, inorder to make use of the services provided by the application, clients must format their request exactly as  
+`domain + api`  
 For example to request a single circuit by its `id = 1`, the API endpoint (as shown in the table) would be `/api/circuit/1`, and then appending this endpoint to the domain would result in a request URL of:  
 `https://messy-trusted-boron.glitch.me/api/circuit/1` 
 

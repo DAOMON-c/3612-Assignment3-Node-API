@@ -76,7 +76,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
 - #### Constructors route
   - All
     - **Valid Request:** <br>
-       [/api/constructors](https://messy-trusted-boron.glitch.me/api/constructors) should return all constructor records, which is `211 records`.
+       [/api/constructors](https://messy-trusted-boron.glitch.me/api/constructors) should return all constructor records, which should be `211 records`.
     - Any other request format is a ***FALL THROUGH***
   - ref
     - **Valid Parameter:** <br>
@@ -101,13 +101,13 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
       
 - #### constructorResults route
   - **Valid Parameter:** <br>
-     [/api/constructorResults/ferrari/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrari/2020) should return all of ferrari's 2020 races, which is `34 records`.
+     [/api/constructorResults/ferrari/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrari/2020) should return all of ferrari's 2020 races, which should be `34 records`.
   - **`Invalid Parameter:`** <br>
      Invalid constructor refrence, with a valid season: <br>
      [/api/constructorResults/ferrariiii/2020](https://messy-trusted-boron.glitch.me/api/constructorResults/ferrariiii/2020) <br>
      ````
      {
-       "message": "ConstructorResults: Unable to find results with both ref=ferrariiii and season=2023"
+       "message": "ConstructorResults: Unable to find results with both ref=ferrariiii and season=2020"
      }
      ````
   - **`Invalid Parameter:`** Valid constructor refrence, with an invalid season: <br>
@@ -122,7 +122,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
 - #### drivers route
   - All
     - **Valid Request:** <br>
-       [/api/drivers](https://messy-trusted-boron.glitch.me/api/drivers) should return all the drivers' records, which is `858 records`.
+       [/api/drivers](https://messy-trusted-boron.glitch.me/api/drivers) should return all the drivers' records, which should be `858 records`.
     - Any other request format is a ***FALL THROUGH***
   - ref
     - **Valid Parameter:** <br>
@@ -151,7 +151,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
   
 - #### driverResults route
   - **Valid Parameter:** <br>
-     [/api/driverResults/hamilton/2020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/2020) should return Lewis Hamilton's results for the 2020 season. which is `16 records`.
+     [/api/driverResults/hamilton/2020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/2020) should return Lewis Hamilton's results for the 2020 season. which should be `16 records`.
   - **`Invalid Parameter:`** <br>
      Valid driver refrence, with an invalid season: <br>
      [/api/driverResults/hamilton/3020](https://messy-trusted-boron.glitch.me/api/driverResults/hamilton/3020) <br>
@@ -173,7 +173,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
 - #### races route
   - /season/`year`
     - **Valid Parameter:** <br>
-       [/api/races/season/2020](https://messy-trusted-boron.glitch.me/api/races/season/2020) should return all the rounds in the 2020 season, which is `17 records`.
+       [/api/races/season/2020](https://messy-trusted-boron.glitch.me/api/races/season/2020) should return all the rounds in the 2020 season, which should be `17 records`.
     - **`Invalid Parameter:`** <br>
        [/api/races/season/3020](https://messy-trusted-boron.glitch.me/api/races/season/3020) <br>
        ````
@@ -218,7 +218,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
 - #### results route
   - /race/`id`
     - **Valid Parameter:** <br>
-       [/api/results/race/1085](https://messy-trusted-boron.glitch.me/api/results/race/1085) should return all races with `id=1085`, which is `20 records`.
+       [/api/results/race/1085](https://messy-trusted-boron.glitch.me/api/results/race/1085) should return all races with `id=1085`, which should be `20 records`.
     - **`Invalid Parameter:`** <br>
        [/api/results/race/-1](https://messy-trusted-boron.glitch.me/api/results/race/-1) <br>
        ````
@@ -229,7 +229,7 @@ For example to request a single circuit by its `id=1`, the API endpoint (as show
     - Any other request format is a ***FALL THROUGH***
   - /season/`year`
     - **Valid Parameter:** <br>
-       [/api/results/season/2020](https://messy-trusted-boron.glitch.me/api/results/season/2020) should return all the 2020 season results, which is `340 records`.
+       [/api/results/season/2020](https://messy-trusted-boron.glitch.me/api/results/season/2020) should return all the 2020 season results, which should be `340 records`.
     - **`Invalid Parameter:`** <br>
        [/api/results/season/3020](https://messy-trusted-boron.glitch.me/api/results/season/3020) <br>
        ````
